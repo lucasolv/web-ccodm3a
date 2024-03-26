@@ -57,7 +57,7 @@ function login(event){
   const inputEmail = document.querySelector('input[type="email"]');
 
 
-  if(!inputEmail){
+  if(!inputEmail.value){
     const error = document.createElement("p");
     error.innerText = "Email é obrigatório";
     inputEmail.parentElement.appendChild(error);
