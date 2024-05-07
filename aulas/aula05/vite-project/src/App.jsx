@@ -4,6 +4,7 @@ import { AuthContext } from './contexts/AuthContext'
 import Home from './pages/Home'
 import Perfil from './pages/Perfil'
 import Login from './pages/Login'
+import Layout from './components/Layout'
 
 function App() {
   const {user} = useContext(AuthContext);
@@ -12,8 +13,10 @@ function App() {
       <Routes>
         {user.logado ? (
           <>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/perfil' element={<Perfil/>}/>
+            <Route element={<Layout/>}>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/perfil/:id' element={<Perfil/>}/>
+            </Route>
           </>
         )
         : (
